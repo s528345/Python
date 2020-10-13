@@ -1,6 +1,6 @@
 import nltk
-from nltk.sten.lancaster import LancasterStemmer
-stemmer = lancasterStemmer()
+from nltk.stem.lancaster import LancasterStemmer
+stemmer = LancasterStemmer()
 
 import numpy
 import tflearn
@@ -9,7 +9,7 @@ import pickle
 import random
 import json
 
-with open("intents.json") as file
+with open("intents.json") as file:
 	data = json.load(file)
 
 try:
@@ -24,7 +24,7 @@ except:
 
 	# Iterating through json file
 	for intents in data["intents"]:
-		for patterns in intents["patterns"]
+		for patterns in intents["patterns"]:
 			wrds = nltk.word_tokenize(patterns)
 			words.extend(wrds)
 			doc_x.append(wrds)
@@ -59,7 +59,7 @@ except:
 				bag.append(0)
 
 		output_row =  out_empty[:]
-		output_row = [labels.index(docs_y[x])] = 1
+		output_row[labels.index(docs_y[x])] = 1
 
 		training.append(bag)
 		ouput.append(output_row)
@@ -107,7 +107,7 @@ def chat():
 	while True:
 
 		you = input("You: ")
-		if you.lower() == "quit"
+		if you.lower() == "quit":
 			break
 
 		results = model.predict([bag_of_words(you, words)])[0]
