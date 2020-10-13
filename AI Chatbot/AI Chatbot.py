@@ -27,11 +27,11 @@ except:
 		for patterns in intents["patterns"]:
 			wrds = nltk.word_tokenize(patterns)
 			words.extend(wrds)
-			doc_x.append(wrds)
+			docs_x.append(wrds)
 			docs_y.append(intents["tag"])
 
 		if intents["tag"] not in labels:
-			label.append(intents["tag"])
+			labels.append(intents["tag"])
 
 	# Words sorted and to lower case in json
 	words = [stemmer.stem(w.lower()) 
@@ -92,9 +92,9 @@ def bag_of_words(s, words):
 	bag = [0 for _ in range(len(words))]
 
 	s_words = nltk,word_tokenize(s)
-	s_Words = [stemmer.stem(word.lower()) for word in s_words]
+	s_words = [stemmer.stem(word.lower()) for word in s_words]
 
-	for x in s_eords:
+	for x in s_words:
 		for i, j in enumerate(words):
 			if j == x:
 				bag[i] = (1)
