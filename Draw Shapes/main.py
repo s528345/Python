@@ -17,7 +17,14 @@ def calcCircle(radius):
     print("The circumference of the circle is: ", circum)
     print("The area of the circle is: ", area)
     print("============================================")
-    
+
+def calcSquare(side):
+    print("\n============================================")
+    perimeter = int(side * 4)
+    area = (side * side)
+    print("The perimeter of the square is: ", perimeter)
+    print("The area of the square is: ", area)
+    print("============================================")
 
 run = True
 while run:
@@ -30,3 +37,14 @@ while run:
         promptDimensions()
         radius = int(input("\nEnter the radius of the circle: "))
         calcCircle(radius)
+    if(shape == "sqaure"):
+        promptDimensions()
+        side = int(input("\nEnter the side length of the square: "))
+    else:
+        print("Invalid input")
+        choice = input("Would you likes to exit? ")
+        choice.lower()
+        if(choice == "yes"):
+            run = False
+        
+
